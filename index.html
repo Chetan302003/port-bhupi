@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhupesh Sharma - Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Vanilla Tilt JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --paper-img: url("./assets/portfolio-bg.svg");
+        }
+
+        body {
+            /* Desk background color */
+            background-color: #cbd5e1; 
+            background-image: radial-gradient(#94a3b8 1px, transparent 1px);
+            background-size: 24px 24px;
+            font-family: 'Poppins', sans-serif;
+            padding: 1rem;
+            overflow-x: hidden;
+        }
+
+        @media (min-width: 768px) {
+            body { padding: 3rem; }
+        }
+
+        /* The Paper Sheet */
+        .paper-sheet {
+            background-image: url("./assets/portfolio-bg.svg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 
+                0 25px 50px -12px rgba(0,0,0,0.35),
+                0 0 0 1px rgba(255,255,255,0.2) inset;
+            border-radius: 2px;
+            position: relative;
+            /* Required for 3D tilt effect */
+            transform-style: preserve-3d; 
+            will-change: transform;
+        }
+
+        /* 1. Printed Ink Effect: Makes text soak into the paper texture */
+        .ink-text {
+            color: rgba(0, 0, 0, 0.85);
+            mix-blend-mode: multiply;
+            text-shadow: 0 0 1px rgba(0,0,0,0.15); /* Slight ink bleed */
+            /* Pushes text off the page slightly in 3D space */
+            transform: translateZ(30px); 
+        }
+
+        /* 2. Skeuomorphic Scotch Tape */
+        .tape {
+            position: absolute;
+            width: 130px;
+            height: 35px;
+            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1), inset 0 0 4px rgba(255,255,255,0.5);
+            backdrop-filter: blur(3px);
+            border-left: 2px dashed rgba(255,255,255,0.4);
+            border-right: 2px dashed rgba(255,255,255,0.4);
+            top: -15px;
+            left: 50%;
+            z-index: 10;
+            transform: translateZ(40px) translateX(-50%) rotate(-3deg);
+        }
+        
+        .tape.alt-angle {
+            transform: translateZ(40px) translateX(-50%) rotate(4deg);
+        }
+
+        /* 3. Highlighter Hover Effect */
+        .highlight-link {
+            position: relative;
+            z-index: 1;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .highlight-link::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            left: -2px;
+            bottom: 2px;
+            width: 0;
+            height: 40%;
+            background-color: rgba(250, 204, 21, 0.8); /* Highlighter Yellow */
+            transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .highlight-link:hover::before {
+            width: calc(100% + 4px);
+        }
+
+        /* Hide scrollbar for the nav */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="antialiased selection:bg-yellow-300 selection:text-black space-y-12 md:space-y-24">
+
+    <!-- Floating Navigation Bar -->
+    <nav class="fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 bg-white/60 backdrop-blur-lg px-6 py-4 shadow-2xl flex gap-6 rounded-full border border-white/40 text-xs md:text-sm font-bold tracking-wide w-[95%] md:w-auto justify-start md:justify-center overflow-x-auto no-scrollbar whitespace-nowrap">
+        <a href="#hero" class="highlight-link ink-text">Home</a>
+        <a href="#about" class="highlight-link ink-text">About me</a>
+        <a href="#education" class="highlight-link ink-text">Education</a>
+        <a href="#projects" class="highlight-link ink-text">Projects</a>
+        <a href="#skills" class="highlight-link ink-text">Skills</a>
+        <a href="#contact" class="highlight-link ink-text">Get in touch</a>
+    </nav>
+
+    <!-- Hero Section Sheet -->
+    <section id="hero" class="paper-sheet min-h-[90vh] flex flex-col items-center justify-center scroll-mt-32 max-w-6xl mx-auto" data-tilt data-tilt-max="2" data-tilt-speed="1000" data-tilt-glare="true" data-tilt-max-glare="0.1">
+        <div class="tape alt-angle"></div>
+        <div class="text-center w-full px-4 flex flex-col items-center mt-12 ink-text">
+            <h1 class="text-[18vw] md:text-[200px] font-black tracking-tighter leading-[0.85]">
+                Portfolio.
+            </h1>
+            <div class="w-full flex justify-center md:justify-end md:pr-[15%] mt-4 md:mt-0">
+                <h2 class="text-2xl md:text-5xl font-bold tracking-tight">
+                    Bhupesh Sharma
+                </h2>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-6 md:left-12 text-sm md:text-base font-bold ink-text">
+            bhupeshsharma2977@gmail.com
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="max-w-5xl mx-auto space-y-12 md:space-y-24 pb-20">
+
+        <!-- About Sheet -->
+        <section id="about" class="paper-sheet scroll-reveal md:-rotate-1 p-10 md:p-24 scroll-mt-32" data-tilt data-tilt-max="2" data-tilt-speed="800">
+            <div class="tape"></div>
+            <div class="ink-text">
+                <h3 class="text-4xl md:text-6xl font-black tracking-tighter mb-8">About me.</h3>
+                <div class="space-y-6 text-lg md:text-2xl font-semibold leading-relaxed">
+                    <p>
+                        I am a BBA FinTech graduate from Jaipur National University, passionate about leveraging technology to drive financial innovation.
+                    </p>
+                    <p>
+                        With strong analytical capabilities and expertise in digital banking technologies, I focus on AI applications in finance, payment systems, and customer-centric fintech solutions.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Sheet -->
+        <section id="education" class="paper-sheet scroll-reveal md:rotate-1 p-10 md:p-24 scroll-mt-32" data-tilt data-tilt-max="2" data-tilt-speed="800">
+            <div class="tape alt-angle"></div>
+            <div class="ink-text">
+                <h3 class="text-4xl md:text-6xl font-black tracking-tighter mb-12">Education.</h3>
+                <div class="space-y-12">
+                    <div>
+                        <h4 class="text-2xl md:text-3xl font-bold">BBA FinTech</h4>
+                        <p class="text-xl font-medium opacity-80 mt-2">Jaipur National University — Expected 2026</p>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl md:text-3xl font-bold">Senior Secondary Education</h4>
+                        <p class="text-xl font-medium opacity-80 mt-2">Sikar, Rajasthan — Completed 2024</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Sheet -->
+        <section id="projects" class="paper-sheet scroll-reveal md:-rotate-[1.5deg] p-10 md:p-24 scroll-mt-32" data-tilt data-tilt-max="2" data-tilt-speed="800">
+            <div class="tape"></div>
+            <div class="ink-text">
+                <h3 class="text-4xl md:text-6xl font-black tracking-tighter mb-12">Projects.</h3>
+                <div class="space-y-16">
+                    <div>
+                        <h4 class="text-3xl font-bold mb-4">AI in Personal Finance</h4>
+                        <p class="text-xl font-semibold opacity-90 leading-relaxed mb-4">
+                            Evaluated hyper-personalization strategies, ethical considerations, and compliance challenges in AI-driven services. Analyzed case studies from Paytm, Google Pay, and ICICI Digital.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-3xl font-bold mb-4">Fintech Ecosystem Study</h4>
+                        <p class="text-xl font-semibold opacity-90 leading-relaxed mb-4">
+                            Comprehensive comparative analysis of traditional banking versus modern fintech platforms, focusing on emerging payment technologies (UPI, BNPL, blockchain) and customer-centric design.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Sheet -->
+        <section id="skills" class="paper-sheet scroll-reveal md:rotate-[0.5deg] p-10 md:p-24 scroll-mt-32" data-tilt data-tilt-max="2" data-tilt-speed="800">
+            <div class="tape alt-angle"></div>
+            <div class="ink-text">
+                <h3 class="text-4xl md:text-6xl font-black tracking-tighter mb-12">Technical skill.</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h4 class="text-2xl font-black mb-6 border-b-4 border-black/80 inline-block pb-1">Tools & Software</h4>
+                        <ul class="space-y-3 text-xl font-semibold">
+                            <li>MS Excel (Intermediate)</li>
+                            <li>Data Analysis & Visualization</li>
+                            <li>AI Tools (ChatGPT, Claude)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-black mb-6 border-b-4 border-black/80 inline-block pb-1">Banking Domains</h4>
+                        <ul class="space-y-3 text-xl font-semibold">
+                            <li>Digital Banking Concepts</li>
+                            <li>Payment Systems (UPI, NEFT)</li>
+                            <li>KYC Processes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Sheet -->
+        <section id="contact" class="paper-sheet scroll-reveal p-10 md:p-24 scroll-mt-32 text-center" data-tilt data-tilt-max="3" data-tilt-speed="600">
+            <div class="tape"></div>
+            <div class="ink-text">
+                <h3 class="text-5xl md:text-8xl font-black tracking-tighter mb-8">Get in touch.</h3>
+                <p class="text-xl md:text-2xl font-semibold mb-12 max-w-2xl mx-auto">
+                    Open to internship and entry-level opportunities in banking & financial services.
+                </p>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8 text-3xl font-black">
+                    <a href="mailto:bhupeshsharma2977@gmail.com" class="highlight-link">
+                        Email me
+                    </a>
+                    <span class="hidden md:inline opacity-30">/</span>
+                    <a href="https://linkedin.com/in/bhupesh-sharma-fintech-477" target="_blank" class="highlight-link">
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        // Setup initial state for scroll reveal elements
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+        
+        revealElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = `${el.style.transform} translateY(50px) scale(0.95)`;
+            el.style.transition = 'opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
+        });
+
+        // Intersection Observer to drop papers onto the desk as you scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    // Strip out the initial translate/scale but keep any rotation from Tailwind classes
+                    const currentTransform = entry.target.style.transform;
+                    entry.target.style.transform = currentTransform.replace('translateY(50px) scale(0.95)', '');
+                    
+                    // Unobserve after revealing
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

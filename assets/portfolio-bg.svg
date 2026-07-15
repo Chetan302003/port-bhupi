@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200">
+  <rect width="1600" height="1200" fill="#f6efe2"/>
+  <rect x="0" y="0" width="1600" height="1200" fill="url(#paper)"/>
+  <g opacity="0.35" fill="#d8c8a5">
+    <circle cx="120" cy="180" r="8"/>
+    <circle cx="420" cy="280" r="5"/>
+    <circle cx="860" cy="160" r="6"/>
+    <circle cx="1280" cy="320" r="7"/>
+    <circle cx="300" cy="760" r="6"/>
+    <circle cx="1100" cy="700" r="5"/>
+    <circle cx="1460" cy="920" r="6"/>
+    <circle cx="740" cy="980" r="4"/>
+  </g>
+  <g opacity="0.2" stroke="#b79d73" stroke-width="2" fill="none">
+    <path d="M80 220 C240 180, 360 180, 540 250"/>
+    <path d="M920 180 C1080 140, 1240 180, 1460 260"/>
+    <path d="M180 860 C320 760, 500 780, 660 900"/>
+    <path d="M940 860 C1100 770, 1320 820, 1480 940"/>
+  </g>
+  <defs>
+    <linearGradient id="paper" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8f1e2"/>
+      <stop offset="100%" stop-color="#e8dcc4"/>
+    </linearGradient>
+  </defs>
+</svg>
